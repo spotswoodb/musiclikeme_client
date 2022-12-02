@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import SpotifyWebApi from 'spotify-web-api-js';
 import UserTopTracks from './userTopTracks';
+import SearchPopularTracks from './searchPopularTracks'
 
 function Token() {
 
@@ -40,6 +41,8 @@ function Token() {
             <h1>Token Page</h1>
             {!loggedIn && <a href="http://localhost:8888">Login to Spotify</a>}
             {loggedIn ? <UserTopTracks spotifyToken={spotifyToken} /> : <h2>Login To View Your Top Tracks</h2>}
+            {loggedIn ? <SearchPopularTracks spotifyToken={spotifyToken} /> : <h2>Login To Search Top Tracks</h2>}
+
         </div>
     )
 }
