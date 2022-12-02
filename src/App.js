@@ -1,10 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
+import Token from './components/token';
+
 
 function App() {
   return (
     <div className="App">
-      <a href="http://localhost:8888">Login to Spotify</a>
+      <Token />
     </div>
   );
 }
