@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import SpotifyWebApi from 'spotify-web-api-js';
 import UserTopTracks from './userTopTracks';
 import SearchPopularTracks from './searchPopularTracks'
+import RecommendedTracksByGenre from './recommendedTracksByGenre';
 
 function Token() {
 
@@ -19,18 +20,18 @@ function Token() {
     const [loggedIn, setLoggedIn] = useState(false)
 
     useEffect(() => {
-        console.log("This is what we derived from the URL: ", getTokenFromUrl())
+        // console.log("This is what we derived from the URL: ", getTokenFromUrl())
         const spotifyToken = getTokenFromUrl().access_token
         window.location.hash = ""
-        console.log("This is our Spotify token", spotifyToken);
+        // console.log("This is our Spotify token", spotifyToken);
 
         if (spotifyToken) {
             setSpotifyToken(spotifyToken)
             spotifyApi.setAccessToken(spotifyToken)
             spotifyApi.getMe()
-            .then((user) => {
-                console.log(user)
-            })
+            // .then((user) => {
+            //     // console.log(user)
+            // })
             setLoggedIn(true)
         }
     })
@@ -42,6 +43,7 @@ function Token() {
             {!loggedIn && <a href="http://localhost:8888">Login to Spotify</a>}
             {loggedIn ? <UserTopTracks spotifyToken={spotifyToken} /> : <h2>Login To View Your Top Tracks</h2>}
             {loggedIn ? <SearchPopularTracks spotifyToken={spotifyToken} /> : <h2>Login To Search Top Tracks</h2>}
+            {loggedIn ? <RecommendedTracksByGenre spotifyToken={spotifyToken} /> : <h2>Login To Check Recommended Tracks by Genre</h2>}
 
         </div>
     )
