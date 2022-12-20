@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import SpotifyWebApi from 'spotify-web-api-js';
-import UserTopTracks from './userTopTracks';
-import SearchPopularTracks from './searchPopularTracks'
-import RecommendedTracksByGenre from './recommendedTracksByGenre';
+import UserTopTracks from './spotify/userTopTracks';
+import SearchPopularTracks from './spotify/searchPopularTracks'
+import RecommendedTracksByGenre from './spotify/recommendedTracksByGenre';
+import Entries from './entries/entries';
 
 function Token() {
 
@@ -44,7 +45,7 @@ function Token() {
             {loggedIn ? <UserTopTracks spotifyToken={spotifyToken} /> : <h2>Login To View Your Top Tracks</h2>}
             {loggedIn ? <SearchPopularTracks spotifyToken={spotifyToken} /> : <h2>Login To Search Top Tracks</h2>}
             {loggedIn ? <RecommendedTracksByGenre spotifyToken={spotifyToken} /> : <h2>Login To Check Recommended Tracks by Genre</h2>}
-
+            {/* {loggedIn ? <Entries spotifyToken={spotifyToken} /> && <EntryForm />: <h2>Login To View Your Entries</h2>} */}
         </div>
     )
 }
