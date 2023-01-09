@@ -1,15 +1,29 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchEntries } from '../redux/entryActions';
+
+
 
 export default function Entries() {
 
-    const [entries, setEntries] = useState([])
+
+
+    // const entriesInRedux = useSelector((state) => state.entries);
+
+    // const dispatch = useDispatch();
+
+    // // const [entries, setEntries] = useState([])
+
+    // useEffect(() => {
+    //     dispatch(fetchEntries())
+    // }, []);
 
       return (
         <div>
             <h2>My Entries</h2>
             <div className="d-flex justify-content-center align-items-center container">
                     <div className="align-self-center row row-cols-1 row-cols-md-3 g-4">
-                        {entries.map(e =>
+                        {entriesInRedux.map(e =>
                             <div key={e.id} className="col"> 
                                 <div className="card" style={{width: '18rem'}}>
                                     <div className="card-body">
