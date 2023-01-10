@@ -1,14 +1,13 @@
-import { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { fetchEntries } from '../redux/entryActions';
+// import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+// import { fetchEntries } from '../../redux/entryActions';
 
 
 
 export default function Entries() {
 
 
-
-    // const entriesInRedux = useSelector((state) => state.entries);
+    const entriesInRedux = useSelector((state) => state.entries);
 
     // const dispatch = useDispatch();
 

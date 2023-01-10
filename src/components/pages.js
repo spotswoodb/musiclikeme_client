@@ -1,14 +1,16 @@
 import React from 'react';
-// import { useDispatch } from 'react-redux';
-import NewEntryForm from './entries/entryForm'
-import Entries from './entries/entries'
+import NewEntryForm from './entries/entryForm';
+import Entries from './entries/entries';
+import { useEffect } from 'react';
+
+import { useDispatch } from 'react-redux';
+
 import { fetchEntries } from '../redux/entryActions';
 // import Home from './home';
 import { Routes, Route } from 'react-router-dom';
 
 export default function Pages() {
 
-    const entriesInRedux = useSelector((state) => state.entries);
 
     const dispatch = useDispatch();
 
